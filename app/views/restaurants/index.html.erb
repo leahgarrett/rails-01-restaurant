@@ -3,7 +3,13 @@
 <ul>
     <% @restaurants.each_with_index do |restaurant, index| %>
         <li>
-            <%= restaurant.title %> - <%= restaurant.food_type %> <%= link_to "show", restaurant_path(restaurant.id) %>
+            <%= restaurant.title %> - <%= restaurant.food_type %> 
+            <%= link_to "show", restaurant_path(restaurant.id) %>
+
+            <% if can? :update, restaurant %>
+            <%= link_to "edit", edit_restaurant_path(restaurant.id) %>
+            <% end %>
+
             <p>Reviews: <%= restaurant.reviews.count %></p>
             <p>Average rating: <%= restaurant.average_rating %></p>
             

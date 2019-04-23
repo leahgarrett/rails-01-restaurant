@@ -65,3 +65,6 @@ gem "faker", "~> 1.9"
 
 gem 'bootstrap'
 gem 'jquery-rails' 
+
+gem 'devise'
+gem 'cancancan'

@@ -7,12 +7,12 @@ class Restaurant < ApplicationRecord
     has_many :reviews, dependent: :destroy
 
     def average_rating
-        unless self.reviews.empty?
+        unless reviews.empty?
             sum = 0
-            self.reviews.each do |review|
+            reviews.each do |review|
                 sum += review.rating
             end
-            sum / self.reviews.count
+            sum / reviews.count
         end
     end
 end
